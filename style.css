@@ -1,0 +1,175 @@
+/* Turning Point Roasters — landing page
+   Skin: warm-cafe (diagram-design tokens, re-mapped to a coffee palette) */
+
+:root {
+  --paper: #f4efe7;
+  --paper-2: #ebe3d6;
+  --ink: #3a2e26;
+  --muted: #7a6a5d;
+  --soft: #a1917f;
+  --rule: rgba(58, 46, 38, 0.14);
+  --rule-solid: #cdbfad;
+  --accent: #c0703c;
+  --accent-tint: rgba(192, 112, 60, 0.12);
+  --link: #5a7a6a;
+
+  --serif: 'Instrument Serif', 'Noto Serif KR', Georgia, serif;
+  --sans: 'Geist', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --mono: 'Geist Mono', 'Noto Sans KR', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- eyebrow / headings ---- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 4rem); margin: 0 0 20px; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin: 0 0 16px; }
+h3 { font-size: 1.35rem; margin: 0 0 8px; }
+
+p { margin: 0 0 16px; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 44ch; }
+
+/* ---- hero ---- */
+.hero {
+  padding: 96px 0 72px;
+  border-bottom: 1px solid var(--rule);
+}
+.hero .brandmark {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.hero-cta:hover { background: var(--ink); color: var(--paper); }
+
+/* ---- diagram sections ---- */
+section.block {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.block-head { max-width: 52ch; margin-bottom: 40px; }
+.block-head p { color: var(--muted); }
+
+.figure {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.figure svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+}
+.figure figcaption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 16px;
+  max-width: 56ch;
+}
+
+/* ---- summary cards ---- */
+.cards {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.9fr;
+  gap: 20px;
+  margin-top: 44px;
+}
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(58, 46, 38, 0.12);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+.card .eyebrow { color: var(--muted); margin-bottom: 10px; }
+.card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.card-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.card-dot.ink { background: var(--ink); }
+.card-dot.accent { background: var(--accent); }
+.card-dot.link { background: var(--link); }
+.card p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+/* ---- footer ---- */
+footer {
+  padding: 64px 0 48px;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+.foot-grid h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 10px;
+}
+.foot-grid p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+.colophon {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--soft);
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+
+@media (max-width: 720px) {
+  .cards, .foot-grid { grid-template-columns: 1fr; }
+  .hero { padding: 64px 0 48px; }
+  section.block { padding: 56px 0; }
+}
